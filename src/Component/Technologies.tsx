@@ -10,14 +10,14 @@ export interface StacksProps {
 const Technologies = ({stackPromise}: StacksProps) => {
   const [selectStack, setSelectStack] = useState<StackType[]>([]);
   return (
-    <div className="container mx-auto md:pb-22">
+    <div className="container mx-auto md:pb-22 px-3.5 md:px-0">
         <div className="md:mt-10 grid md:grid-cols-12 gap-8">
         {/* Stacks Area */}
-        <div className="col-span-9">
+        <div className="col-span-12 md:col-span-9">
           <Stacks stackPromise={stackPromise} selectStack={selectStack} setSelectStack={setSelectStack}></Stacks>
         </div>
         {/* Selected Stack Area */}
-        <div className="col-span-3">
+        <div className="col-span-12 md:col-span-3">
           <SelectedStack selectStack={selectStack} setSelectStack= {setSelectStack}></SelectedStack>
         </div>
       </div>
