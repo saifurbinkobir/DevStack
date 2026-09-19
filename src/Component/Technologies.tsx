@@ -18,7 +18,7 @@ const Technologies = ({stackPromise}: StacksProps) => {
         </div>
         {/* Selected Stack Area */}
         <div className="col-span-3">
-          <SelectedStack selectStack={selectStack}></SelectedStack>
+          <SelectedStack selectStack={selectStack} setSelectStack= {setSelectStack}></SelectedStack>
         </div>
       </div>
     </div>

@@ -23,11 +23,9 @@ const badgeStyles: Record<string, string> = {
 };
 
 export default function StackCard({ stack, selectStack, setSelectStack }: StackCardProps) {
-  const [isAdded, setIsAdded] = useState(false);
+  const isAdded = selectStack.some((item) => item.id === stack.id);
   const handleStackBTN = () => {
-    setIsAdded(true);
     setSelectStack([...selectStack, stack]);
-    console.log(setSelectStack);
   };
   return (
     <div key={stack.id} className="p-5 rounded-2xl border border-[#F1F5F9] ">
