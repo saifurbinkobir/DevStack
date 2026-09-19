@@ -2,7 +2,6 @@ import type { Dispatch, SetStateAction } from "react";
 import type { StackType } from "../types/type";
 import { IoMdClose } from "react-icons/io";
 import { toast } from "react-toastify";
-import Stacks from "./Stacks";
 export interface SelectedStackProps {
   selectStack: StackType[];
   setSelectStack: Dispatch<SetStateAction<StackType[]>>;
