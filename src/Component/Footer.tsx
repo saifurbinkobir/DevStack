@@ -1,3 +1,4 @@
+import logo from "../assets/logo-text.png";
 const Footer = () => {
   return (
     <div className="pt-8 pb-12 md:pt-16 md:pb-12 px-3.5 md:px-0 border-t border-[#F1F5F9]">
@@ -5,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-5 md:gap-10 justify-between items-start mb-6 md:mb-14">
         <div className="md:col-span-2 text-center md:text-left">
           <a href="#" className="flex justify-center md:justify-start">
-            <img src="/src/assets/logo-text.png" alt="Dev Stack" />
+            <img src={logo} alt="Dev Stack" />
           </a>
           <p className="text-[#64748B] my-3 w-[90%]">
             Curated tools, technologies, and resources for developers building

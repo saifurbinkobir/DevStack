@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CiMenuBurger } from "react-icons/ci";
+import logo from "../assets/logo-text.png";
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     
@@ -15,7 +16,7 @@ const Header = () => {
         {/* Logo Area */}
         <div className="ml-6 md:ml-0">
           <a href="#">
-            <img src="/src/assets/logo-text.png" alt="DevStack" />
+            <img src={logo} alt="DevStack" />
           </a>
         </div>
         {/* Menu Area */}
