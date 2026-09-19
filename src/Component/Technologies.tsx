@@ -2,11 +2,9 @@ import { useState } from "react";
 import type { StackType } from "../types/type";
 import Stacks from "./Stacks";
 import SelectedStack from "./SelectedStack";
-
 export interface StacksProps {
   stackPromise: Promise<StackType[]>;
 }
-
 const Technologies = ({ stackPromise }: StacksProps) => {
   const [selectStack, setSelectStack] = useState<StackType[]>([]);
   return (
