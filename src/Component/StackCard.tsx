@@ -1,6 +1,8 @@
-import { useState, type Dispatch, type SetStateAction } from "react";
+import { type Dispatch, type SetStateAction } from "react";
 import type { StackType } from "../types/type";
 import { FaStar } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 export interface StackCardProps {
   stack: StackType;
@@ -22,13 +24,23 @@ const badgeStyles: Record<string, string> = {
   Containers: "bg-blue-50 text-blue-500",
 };
 
-export default function StackCard({ stack, selectStack, setSelectStack }: StackCardProps) {
+export default function StackCard({
+  stack,
+  selectStack,
+  setSelectStack,
+}: StackCardProps) {
   const isAdded = selectStack.some((item) => item.id === stack.id);
   const handleStackBTN = () => {
     setSelectStack([...selectStack, stack]);
+    toast.success(`${stack.name} added to your stack!`)
   };
   return (
-    <div key={stack.id} className="p-5 rounded-2xl border border-[#F1F5F9] ">
+    <div
+      key={stack.id}
+      className={`p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 hover:border-[#EC4899] hover:shadow-lg ${
+        isAdded ? "border-2 border-[#EC4899]" : "border-[#F1F5F9]"
+      }`}
+    >
       <div className="flex justify-between items-center">
         <img src={stack.icon} alt={stack.name} className="h-8 w-8" />
         <p
@@ -62,7 +74,14 @@ export default function StackCard({ stack, selectStack, setSelectStack }: StackC
         onClick={handleStackBTN}
         disabled={isAdded}
       >
-        {isAdded === true ? "Stack Added" : "Add to Stack"}
+        {isAdded === true ? (
+          <span className="flex items-center justify-center gap-1">
+            <FaCheck />
+            Stack Added
+          </span>
+        ) : (
+          "Add to Stack"
+        )}
       </button>
     </div>
   );

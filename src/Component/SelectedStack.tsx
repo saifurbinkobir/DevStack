@@ -1,6 +1,8 @@
 import type { Dispatch, SetStateAction } from "react";
 import type { StackType } from "../types/type";
 import { IoMdClose } from "react-icons/io";
+import { toast } from "react-toastify";
+import Stacks from "./Stacks";
 export interface SelectedStackProps {
   selectStack: StackType[];
   setSelectStack: Dispatch<SetStateAction<StackType[]>>;
@@ -11,13 +13,15 @@ export default function SelectedStack({
   setSelectStack,
 }: SelectedStackProps) {
   // Remove One Stack
-  const handleRemoveStack = (id: number) => {
-    const remainingStack = selectStack.filter((stack) => stack.id !== id);
+  const handleRemoveStack = (stack: StackType) => {
+    const remainingStack = selectStack.filter((stackItem) => stackItem.id !== stack.id);
     setSelectStack(remainingStack);
+    toast.info(`${stack.name} removed from your stack`);
   };
   //   Remove All Stack
   const handleRemoveAll = (): void => {
     setSelectStack([]);
+    toast.info(`All technologies removed from your stack`);
   };
   return (
     <div className="p-5 border border-[#F1F5F9] rounded-2xl">
@@ -54,7 +58,7 @@ export default function SelectedStack({
                   </div>
                   <button
                     className="text-[#94A3B8] text-[16px] cursor-pointer"
-                    onClick={() => handleRemoveStack(stack.id)}
+                    onClick={() => handleRemoveStack(stack)}
                   >
                     <IoMdClose />
                   </button>
